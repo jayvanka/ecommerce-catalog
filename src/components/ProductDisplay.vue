@@ -37,7 +37,6 @@
                                 <div class="rating">
                                     <span>{{ product.data.rating.rate }}/5</span>
                                     <div class="rating">
-                                        <!-- <span :class="product.data.category === 'men\'s clothing' ? 'bg-navy' : 'bg-darkpink'" class="circle"></span> -->
                                         <span v-for="star in ratingStars" :key="star" :class="product.data.category === 'men\'s clothing' ? 'bg-navy' : 'bg-darkpink'"  class="circle"></span>
                                         <span v-for="star in emptyStars" :key="star"  :class="product.data.category === 'men\'s clothing' ? 'emptycircle-navy' : 'emptycircle-darkpink'" class="emptycircle"></span>
                                     </div>
@@ -104,7 +103,7 @@ export default {
     },
     computed: {
     ratingStars() {
-      const rating = Math.round(this.product.data.rating.rate); // Bulatkan rating ke bilangan bulat terdekat
+      const rating = Math.round(this.product.data.rating.rate);
       return Array.from({ length: rating }, () => null);
     },
     emptyStars() {
